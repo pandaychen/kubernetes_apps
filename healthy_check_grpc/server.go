@@ -1,6 +1,7 @@
 package main
 
 //You should add This healthy checking logic in Your-Own Grpc Services
+//Other example:https://github.com/grpc-ecosystem/grpc-health-probe/
 
 import (
 	"errors"
