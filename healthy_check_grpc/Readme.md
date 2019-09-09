@@ -23,5 +23,6 @@ livenessProbe:
     - 127.0.0.1:19000
   initialDelaySeconds: 2
   periodSeconds: 2
-复制代码配置成功之后,k8s会每2秒执行 /root/rpc_check -a 127.0.0.1:19000, 执行成功的话代表存活,不成功的话k8s会重启pod
+
+k8s会每2秒执行 /root/rpc_check -a 127.0.0.1:19000, 执行成功的话代表存活,不成功的话k8s会重启pod
 ```
