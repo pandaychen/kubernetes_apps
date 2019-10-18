@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: grpcclient
+spec:
+  template: # create pods using pod definition in this template
+    metadata:
+      name: client
+    spec:
+      containers:
+      - name: grpcclient
+        image: client:v1
+        command: ["/bin/sh", "-c", "cd /data/ && /data/client -port=50051 -svc headsvc.default.svc.cluster.local"]
+      restartPolicy: Never
