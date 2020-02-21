@@ -21,6 +21,23 @@ type UnaryServerInterceptor func(ctx context.Context, req interface{}, info *Una
 -	handler UnaryHandler:RPC 方法本身
 
 
+##	实现多个拦截器
+
+https://github.com/grpc-ecosystem/go-grpc-middleware/blob/master/chain.go 已经有了实现
+
+```
+import "github.com/grpc-ecosystem/go-grpc-middleware"
+
+myServer := grpc.NewServer(
+    grpc.StreamInterceptor(grpc_middleware.ChainStreamServer(
+        ...
+    )),
+    grpc.UnaryInterceptor(grpc_middleware.ChainUnaryServer(
+       ...
+    )),
+)
+```
+
 ##	思考:
 
 如何理解Interceptor方法中的handler?
